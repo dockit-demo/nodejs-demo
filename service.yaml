@@ -1,0 +1,15 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: dmeo-nodejs
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/cpu-throttling: 'true'
+    spec:
+      containers:
+        - image: gcr.io/zeet-dev/run:x86
+          ports:
+          - containerPort: 80
+
